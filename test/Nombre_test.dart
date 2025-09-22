@@ -17,4 +17,16 @@ void main() {
       throwsA(isA<TieneCaracterEspecialExcepcion>()),
     );
   });
+  test('tiene numeros al inicio', () {
+    expect(
+      () => Nombre('2004fgmc'),
+      throwsA(isA<TieneNumerosAlInicioExcepcion>()),
+    );
+  });
+  test('salio todobien hehehehehe', () {
+    expect(
+      () => Nombre('Mango2004'),
+      throwsA(isA<TieneCaracterEspecialExcepcion>()),
+    );
+  });
 }
