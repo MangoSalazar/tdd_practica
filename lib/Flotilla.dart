@@ -1,10 +1,22 @@
 import 'dart:html_common';
 
+import 'package:tdd_practica/Elemento.dart';
+import 'package:tdd_practica/Punto.dart';
+
 enum TiposBarcos { bote, lancha, submarino, crucero, portaaviones }
+
+enum DireccionesHacia { arriba, abajo, izquierda, derecha }
 
 class Barco {
   TiposBarcos tipo;
-  Barco(this.tipo);
+  final DireccionesHacia direccion;
+  final Punto puntoInicial;
+  List<Elemento> _elemento = [];
+  Barco({
+    required this.tipo,
+    required this.puntoInicial,
+    required this.direccion,
+  });
 }
 
 class Flotilla {
