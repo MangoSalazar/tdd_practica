@@ -16,7 +16,8 @@ class Barco {
     required this.tipo,
     required this.puntoInicial,
     required this.direccion,
-  });
+    required List<Elemento> elemento,
+  }) : _elemento = elemento;
 }
 
 class Flotilla {
