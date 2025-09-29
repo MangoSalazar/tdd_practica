@@ -22,6 +22,7 @@ class Barco {
     int fila = puntoInicial.fila;
     while (cuantasVeces > 0) {
       _elementos.add(Elemento(punto: Punto(columna: columna, fila: fila)));
+
       columna = columna + dColumna[direccion]!;
       fila = fila + dFila[direccion]!;
       cuantasVeces--;
@@ -54,11 +55,29 @@ class Flotilla {
   List<Barco> _barcos;
   int get cantidad => _barcos.length;
   Flotilla(this._barcos) {
-    if (_barcos.length != 5) throw FlotillaCantidadExcepcion;
-    if (true) throw FlotillaTipos();
+    if (cantidad != 5) throw FlotillaCantidadExcepcion();
+    if (true) throw FlotillaTipos;
   }
 }
 
 class FlotillaCantidadExcepcion extends Error {}
 
 class FlotillaTipos extends Error {}
+
+class barcoPosicionExcepcion extends Error {}
+
+/*
+  Flotilla(this._barcos) {
+    if (_barcos.length != 5) throw FlotillaCantidadExcepcion;
+    if (!hayRepetidos(_barcos)) throw FlotillaTipos;
+  }
+
+  bool hayRepetidos(List<Barco> barcos) {
+    List<String> tiposRepetidos = [];
+    for (var i = 0; i < barcos.length - 1; i++) {
+      tiposRepetidos[i] = barcos[i].tipo.toString();
+    }
+    if ((tiposRepetidos.toSet().toList()) != 5) return true;
+    return false;
+  }
+  */
