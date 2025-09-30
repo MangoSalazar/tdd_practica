@@ -58,6 +58,14 @@ class Flotilla {
   Flotilla(this._barcos) {
     if (cantidad != 5) throw FlotillaCantidadExcepcion();
     if (hayRepetidos(_barcos)) throw FlotillaTipos();
+        for(final barco in _barcos){
+      if(!estaDentroDelTablero(barco)){
+        throw FlotillaExcedeTableroExcepcion();
+      }
+    }
+    if(!validarDistancia(_barcos)){
+      throw FlotillaPosicionExcepcion();
+    }
   }
   
   bool hayRepetidos(List<Barco> barcos) {
@@ -104,20 +112,7 @@ class FlotillaCantidadExcepcion extends Error {}
 
 class FlotillaTipos extends Error {}
 
-class barcoPosicionExcepcion extends Error {}
+class FlotillaPosicionExcepcion extends Error {}
 
-/*
-  Flotilla(this._barcos) {
-    if (_barcos.length != 5) throw FlotillaCantidadExcepcion;
-    if (!hayRepetidos(_barcos)) throw FlotillaTipos;
-  }
+class FlotillaExcedeTableroExcepcion extends Error {}
 
-  bool hayRepetidos(List<Barco> barcos) {
-    List<String> tiposRepetidos = [];
-    for (var i = 0; i < barcos.length - 1; i++) {
-      tiposRepetidos[i] = barcos[i].tipo.toString();
-    }
-    if ((tiposRepetidos.toSet().toList()) != 5) return true;
-    return false;
-  }
-  */
