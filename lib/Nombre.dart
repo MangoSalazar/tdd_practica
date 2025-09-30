@@ -1,26 +1,23 @@
 class Nombre {
   late String candidato;
   Nombre(String c) {
+    if (RegExp(r'^\d').hasMatch(c)) {
+      throw TieneNumerosAlInicioExcepcion();
+    }
     if (c.length < longitudMinimaPermitida) {
       throw LongitudMinimaExcepcion();
     }
     if (c.length > longitudMaximaPermitida) {
       throw LongitudMaximaExcepcion();
     }
-
-    if (!hasSpecialChar(c)) {
+    if (hasSpecialChar(c)) {
       throw TieneCaracterEspecialExcepcion();
     }
   }
 
   bool hasSpecialChar(String c) {
-    for (int i = 0; i < c.length; i++) {
-      String char = c[i];
-      if (!RegExp(r'^[a-zA-Z0-9]$').hasMatch(char)) {
-        tieneCaracterEspecial = true;
-      }
-    }
-    return false;
+    final specialCharRegex = RegExp(r'[^a-zA-Z0-9]');
+    return specialCharRegex.hasMatch(c);
   }
 }
 

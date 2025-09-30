@@ -1,7 +1,7 @@
 import 'dart:html_common';
 
-import 'package:tdd_practica/Elemento.dart';
-import 'package:tdd_practica/Punto.dart';
+import 'Elemento.dart';
+import 'Punto.dart';
 
 enum TiposBarcos { bote, lancha, submarino, crucero, portaaviones }
 

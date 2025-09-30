@@ -1,4 +1,4 @@
-import 'package:tdd_practica/Punto.dart';
+import 'Punto.dart';
 
 class Elemento {
   final Punto punto;
