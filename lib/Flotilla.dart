@@ -64,6 +64,16 @@ class Flotilla {
     return barcos.map((barco) => barco.tipo).toSet().length != barcos.length;
   }
 }
+bool validarDistanciaDeFlotilla(List<Barco> barcos) {
+  for (int i = 0; i < barcos.length; i++) {
+    for (int j = i + 1; j < barcos.length; j++) {
+      if (barcosSeTocan(barcos[i], barcos[j])) {
+        return false;
+      }
+    }
+  }
+  return true;
+}
 bool estaDentroDelTablero(Barco barco, {int min = 1, int max = 10}) {
   for (final elemento in barco.elementos) {
     final punto = elemento.punto;   
