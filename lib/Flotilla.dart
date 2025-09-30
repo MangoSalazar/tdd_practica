@@ -56,7 +56,11 @@ class Flotilla {
   int get cantidad => _barcos.length;
   Flotilla(this._barcos) {
     if (cantidad != 5) throw FlotillaCantidadExcepcion();
-    if (true) throw FlotillaTipos;
+    if (hayRepetidos(_barcos)) throw FlotillaTipos();
+  }
+  
+  bool hayRepetidos(List<Barco> barcos) {
+    return barcos.map((barco) => barco.tipo).toSet().length != barcos.length;
   }
 }
 

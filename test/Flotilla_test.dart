@@ -1,4 +1,3 @@
-import 'package:tdd_practica/Elemento.dart';
 import 'package:tdd_practica/Punto.dart';
 import 'package:test/test.dart';
 import 'package:tdd_practica/Flotilla.dart';
@@ -18,6 +17,11 @@ void main() {
     Barco(
       tipo: TiposBarcos.submarino,
       puntoInicial: Punto(columna: 3, fila: 1),
+      direccion: DireccionesHacia.derecha,
+    ),
+    Barco(
+      tipo: TiposBarcos.crucero,
+      puntoInicial: Punto(columna: 4, fila: 1),
       direccion: DireccionesHacia.derecha,
     ),
     Barco(
@@ -49,7 +53,7 @@ void main() {
     ),
     Barco(
       tipo: TiposBarcos.portaaviones,
-      puntoInicial: Punto(columna: 4, fila: 1),
+      puntoInicial: Punto(columna: 5, fila: 1),
       direccion: DireccionesHacia.izquierda,
     ),
   ];
