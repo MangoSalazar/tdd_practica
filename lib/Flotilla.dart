@@ -12,6 +12,7 @@ class Barco {
   final DireccionesHacia direccion;
   final Punto puntoInicial;
   List<Elemento> _elementos = [];
+  List<Elemento> get elementos => _elementos;
   Barco({
     required this.tipo,
     required this.puntoInicial,
@@ -63,7 +64,17 @@ class Flotilla {
     return barcos.map((barco) => barco.tipo).toSet().length != barcos.length;
   }
 }
-
+bool estaDentroDelTablero(Barco barco, {int min = 1, int max = 10}) {
+  for (final elemento in barco.elementos) {
+    final punto = elemento.punto;   
+    final bool estaFuera = 
+        punto.fila < min || punto.fila > max || punto.columna < min || punto.columna > max;
+    if (estaFuera) {
+      return false; 
+    }
+  }
+  return true;
+}
 class FlotillaCantidadExcepcion extends Error {}
 
 class FlotillaTipos extends Error {}
